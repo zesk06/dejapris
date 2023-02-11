@@ -1,12 +1,17 @@
+from typing import Optional, List
 from fastapi import FastAPI, status, HTTPException
+from fastapi.staticfiles import StaticFiles
+
 from pydantic import BaseModel
 
 app = FastAPI()
+app.mount("/site", StaticFiles(directory="site", html = True), name="site")
+
 
 
 books = [
-    {"title": "GamingGame", "isbn": "12345", "dejapris": True},
-    {"title": "Squid life", "isbn": "54321", "dejapris": False},
+        {"title": "GamingGame", "isbn": "12345", "dejapris": True, "note": 0},
+        {"title": "Squid life", "isbn": "54321", "dejapris": False, "note": 2},
 ]
 
 
@@ -14,6 +19,7 @@ class Book(BaseModel):
     title: str
     isbn: str
     dejapris: bool
+    note: int
 
 
 class Message(BaseModel):
@@ -24,6 +30,10 @@ class Message(BaseModel):
 async def root():
     return {"message": "Hello World"}
 
+@app.get("/book/")
+async def get_books() -> List[Book]:
+    """get all books"""
+    return books
 
 @app.get(
     "/book/{isbn}",
@@ -40,7 +50,8 @@ async def root():
         },
     },
 )
-async def get_book_by_isbn(isbn):
+async def get_book_by_isbn(isbn) -> Optional[Book]:
+    """get a book by its isbn"""
     for book in books:
         if book["isbn"] == isbn:
             return Book(**book)

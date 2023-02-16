@@ -5,6 +5,7 @@
 
 import re
 from pathlib import Path
+from main import Book
 from datetime import timedelta
 from typing import Optional
 
@@ -15,6 +16,8 @@ from icecream import ic
 from logzero import logger
 from requests_cache import CachedSession
 import os
+import yaml
+from dejapris.isbn import get_book_from_isbn
 
 
 SESSION_DIR = Path("session")
@@ -142,56 +145,35 @@ def get_book_isbn_from_page(page: Path) -> Optional[str]:
         # no worries
         return None
 
-OPENLIB_URL = "http://openlibrary.org/api/books?bibkeys=ISBN:{isbn}&jscmd=details&format=json"
-def get_book_detail_from_isbn(isbn: str):
-    # try openlibrary
-    url = OPENLIB_URL.format(isbn=isbn)
-    response = SESSION.get(url)
-    response.raise_for_status()
-    r_json = response.json()
-    if f"ISBN:{isbn}" in r_json:
-        
-        book = r_json[f"ISBN:{isbn}"]
-        title = book["details"]["title"]
-        author = book["details"]["authors"][0]["name"]
-        # ic(title, author)
-    else:
-        url = 'https://www.babelio.com/recherche.php'
-        response = SESSION.post(url, data={"Recherche": isbn})
-        response.raise_for_status()
-
-        soup = BeautifulSoup(response.text, features="html.parser")
-        (SESSION_DIR / "isbn.html").write_text(response.text)
-        items = soup.find_all("a", class_='titre1')
-        title = items[0].text
-        
-        author = soup.find_all("div", class_="sgst_auteur_txt")[0].find("a").text
-        # ic(title, author)
-    return title, author
-
 
 def main():
-    # login()
+    login()
 
-    # my_books = parse_prets()
-    # mdict = {}
-    # for book_url in my_books:
-    #     book_title = get_book_from_url(book_url)
-    #     isbn = get_book_isbn_from_page(BOOK_DETAIL)
-    #     mdict[book_title] = isbn
+    my_books = parse_prets()
+    mdict = {}
+    for book_url in my_books:
+        book_title = get_book_from_url(book_url)
+        isbn = get_book_isbn_from_page(BOOK_DETAIL)
+        mdict[book_title] = isbn
 
-    # isbns = []
-    # for book_title, isbn in mdict.items():
-    #     if isbn:
-    #         print(f"{isbn}: {book_title}")
-    #         isbns.append(isbn)
-    #     else:
-    #         print(f"00000: {book_title}")
-    isbns = ['9782809479126', '9782723484435']
+    isbns = []
+    for book_title, isbn in mdict.items():
+        if isbn:
+            print(f"{isbn}: {book_title}")
+            isbns.append(isbn)
+        else:
+            print(f"00000: {book_title}")
 
+    books = []
+    print("### ISBNS ###")
+    print(isbns)
     for isbn in isbns:
-        get_book_detail_from_isbn(isbn)
 
+        book = get_book_from_isbn(isbn)
+        if book:
+            books.append(book)
+    print("### YAML ###")
+    yaml.dump_all([book.dict() for book in books])
 
 if __name__ == "__main__":
     main()

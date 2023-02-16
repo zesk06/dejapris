@@ -3,6 +3,7 @@ logzero
 uvicorn
 requests
 python-dotenv
+pyyaml
 
 requests
 requests_cache

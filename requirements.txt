@@ -1,3 +1,15 @@
 fastapi
 logzero
 uvicorn
+requests
+python-dotenv
+
+requests
+requests_cache
+beautifulsoup4
+#dev
+ipython
+icecream
+black
+isort
+ipdb

@@ -22,31 +22,33 @@ SESSION = CachedSession(
 OPENLIB_URL = "http://openlibrary.org/api/books?bibkeys=ISBN:{isbn}&jscmd=details&format=json"
 def get_book_from_isbn(isbn: str) -> Book:
     # try openlibrary
-    url = OPENLIB_URL.format(isbn=isbn)
-    response = SESSION.get(url)
+    # OPENLIB_URL is moisi
+    # url = OPENLIB_URL.format(isbn=isbn)
+    # response = SESSION.get(url)
+    # response.raise_for_status()
+    # r_json = response.json()
+    # title = None
+    # author = None
+    # if f"ISBN:{isbn}" in r_json:
+        # book = r_json[f"ISBN:{isbn}"]["details"]
+        # ic(book)
+        # title = book["title"]
+        # if "authors" in book:
+            # author = book["authors"][0]["name"]
+            # return Book(title=title, author=author, isbn=isbn)
+
+    url = 'https://www.babelio.com/recherche.php'
+    response = SESSION.post(url, data={"Recherche": isbn})
     response.raise_for_status()
-    r_json = response.json()
-    title = None
-    author = None
 
-    if f"ISBN:{isbn}" in r_json:
-        book = r_json[f"ISBN:{isbn}"]
-        title = book["details"]["title"]
-        author = book["details"]["authors"][0]["name"]
+    soup = BeautifulSoup(response.text, features="html.parser")
+    (SESSION_DIR / "isbn.html").write_text(response.text)
+    items = soup.find_all("a", class_='titre1')
+    if items:
+        title = items[0].text
+        
+        author = soup.find_all("div", class_="sgst_auteur_txt")[0].find("a").text
         return Book(title=title, author=author, isbn=isbn)
-
-    else:
-        url = 'https://www.babelio.com/recherche.php'
-        response = SESSION.post(url, data={"Recherche": isbn})
-        response.raise_for_status()
-
-        soup = BeautifulSoup(response.text, features="html.parser")
-        (SESSION_DIR / "isbn.html").write_text(response.text)
-        items = soup.find_all("a", class_='titre1')
-        if items:
-            title = items[0].text
-            
-            author = soup.find_all("div", class_="sgst_auteur_txt")[0].find("a").text
-            return Book(title=title, author=author, isbn=isbn)
+    print(f"Faild to find info on isbn ({isbn})")
     return None
 

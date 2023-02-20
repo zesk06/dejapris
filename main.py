@@ -24,7 +24,7 @@ def load_books(book_path: Path=BOOKS_FILE) -> list[Book]:
 
 def save_books(books: List[Book], book_path: Path=BOOKS_FILE):
     yaml_str = yaml.safe_dump_all([book.dict() for book in books])
-    book_path.write_text(yaml_str)
+    book_path.write_text(yaml_str, "utf-8")
 
 class Message(BaseModel):
     detail: str

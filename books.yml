@@ -1,26 +1,20 @@
 author: Edward Ashton
 dejapris: true
 isbn: '9791028114138'
-note: 0
+note: 4
 title: Mickey7
 ---
 author: Ahmed Saladin
 dejapris: true
 isbn: '9782809479126'
-note: 0
+note: 2
 title: Magnificient Ms Marvel, tome 1
----
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505065234'
-note: 0
-title: Ichiko et Niko - Tome 4
 ---
 author: Gregory Mackay
 dejapris: true
 isbn: '9782916049632'
 note: 0
-title: "Anders et la comete"
+title: Anders et la comete
 ---
 author: DAVE GRAY
 dejapris: true
@@ -31,17 +25,95 @@ title: Gamestorming
 author: Lunlun Yamamoto
 dejapris: true
 isbn: '9782505065203'
-note: 0
+note: 4
 title: Ichiko et Niko, tome 1
 ---
 author: Lunlun Yamamoto
 dejapris: true
 isbn: '9782505065210'
-note: 0
+note: 4
 title: Ichiko et Niko, tome 2
 ---
 author: Lunlun Yamamoto
 dejapris: true
 isbn: '9782505065227'
-note: 0
+note: 4
 title: Ichiko et Niko, tome 3
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021011159'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 3 : Trop c'est trop"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021041910'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 4 : \xC7a fait suer !"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021060119'
+note: 4
+title: Journal d'un Degonfle Tome 5 - La verite toute moche -
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021011968'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 1 : Carnet de bord de Greg Heffley"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782020988186'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 2 : Rodrick fait sa loi "
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021083781'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 6 : Carr\xE9ment claustro"
+---
+author: Vic James
+dejapris: true
+isbn: '9782092570401'
+note: 0
+title: "Les Puissants, tome 2 : Les \xE9gaux"
+---
+author: "Herv\xE9 Eparvier"
+dejapris: true
+isbn: '9791027606337'
+note: 0
+title: 'Loulou et Momo, tome 2 : Plus on est de fous, plus on pourrit !'
+---
+author: ' Nob'
+dejapris: true
+isbn: '9782747072472'
+note: 0
+title: "La cantoche, tome 2 : Les go\xFBts et les couleurs"
+---
+author: Lewis Trondheim
+dejapris: true
+isbn: '9782756008493'
+note: 0
+title: "Jardins sucr\xE9s"
+---
+author: Alain Crozon
+dejapris: true
+isbn: '9782021068580'
+note: 0
+title: Qui suis-je ?
+---
+author: ' Nob'
+dejapris: true
+isbn: '9791036314919'
+note: 0
+title: "La cantoche, tome 5 : En avant, m\xE2che !"
+---
+author: Vic James
+dejapris: true
+isbn: '9782092570425'
+note: 0
+title: 'Les puissants, tome 3 : Libres'

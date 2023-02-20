@@ -17,6 +17,15 @@ html {
   line-height: 1.4;
 }
 
+.pbutton_plus {
+  color: #00c853;
+  cursor: pointer;
+}
+
+.pbutton_less {
+  color: #dd2c00;
+  cursor: pointer;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -259,5 +268,7 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+
+
 }
 

@@ -14,6 +14,7 @@ from model import Book
 app = FastAPI()
 app.mount("/site", StaticFiles(directory="site", html=True), name="site")
 
+MAX_NOTE=5
 
 BOOKS_FILE=Path("books.yml")
 
@@ -40,6 +41,72 @@ async def get_books() -> List[Book]:
     """get all books"""
     return load_books()
 
+
+@app.post(
+    "/book/{isbn}/note/dec",
+    response_model=Book,
+    responses={
+        404: {"model": Message, "description": "The book was not found"},
+        200: {
+            "description": "Item requested by ID",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "title": "bar",
+                        "isbn": "12345",
+                        "author": "John Doe",
+                        "dejapris": True,
+                        "note": 0,
+                    }
+                }
+            },
+        },
+    },
+)
+async def dec_book_note(isbn) -> Optional[Book]:
+    """dec change a book note"""
+    books = load_books()
+    for book in books:
+        if book.isbn == isbn:
+            book.note = max(book.note-1, 0)
+            save_books(books)
+            return book
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
+    )
+
+@app.post(
+    "/book/{isbn}/note/inc",
+    response_model=Book,
+    responses={
+        404: {"model": Message, "description": "The book was not found"},
+        200: {
+            "description": "Item requested by ID",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "title": "bar",
+                        "isbn": "12345",
+                        "author": "John Doe",
+                        "dejapris": True,
+                        "note": 0,
+                    }
+                }
+            },
+        },
+    },
+)
+async def inc_book_note(isbn) -> Optional[Book]:
+    """inc change a book note"""
+    books = load_books()
+    for book in books:
+        if book.isbn == isbn:
+            book.note = min(book.note+1, MAX_NOTE)
+            save_books(books)
+            return book
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
+    )
 
 @app.get(
     "/book/{isbn}",

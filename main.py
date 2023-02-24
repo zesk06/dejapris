@@ -38,7 +38,8 @@ BOOKS_FILE = Path("books.yml")
 def load_books(book_path: Path = BOOKS_FILE) -> list[Book]:
     yaml_str = book_path.read_text()
     book_list = yaml.safe_load_all(yaml_str)
-    return [Book(**item) for item in book_list]
+
+    return sorted([Book(**item) for item in book_list], key=lambda b: b.author.upper() + b.title.upper())
 
 
 def save_books(books: List[Book], book_path: Path = BOOKS_FILE):

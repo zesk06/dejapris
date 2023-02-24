@@ -1,5 +1,6 @@
-getData();
 
+// function inc
+// increments the isbn
 var inc = function(isbn){
     // see https://reqbin.com/code/javascript/wzp2hxwh/javascript-post-request-example
     console.log("inc("+isbn+")");
@@ -15,6 +16,9 @@ var inc = function(isbn){
     window.location.reload();
 };
 
+
+// function dec
+// decrements the isbn
 var dec = function(isbn){
     // see https://reqbin.com/code/javascript/wzp2hxwh/javascript-post-request-example
     console.log("inc("+isbn+")");
@@ -59,8 +63,29 @@ async function getData() {
     populateTable(data);
 }
 
-let inc_b = document.getElementById("inc");
-console.log(inc_b);
-inc_b.onclick = function () {
-        console.log("inc clicked!");
-    };
+
+function filterTable(){
+    console.log("filterTable()");
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        tds = tr[i].getElementsByTagName("td");
+        let concatStr = "";
+        for (j = 0; j < tds.length; j++) {
+            txtValue = tds[j].textContent || tds[j].innerText;
+            concatStr = concatStr + ":" + txtValue;
+        }       
+        // Manage row display
+        if (concatStr.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+
+getData();

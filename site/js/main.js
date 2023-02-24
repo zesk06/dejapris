@@ -39,19 +39,18 @@ function populateTable(items) {
         items.forEach( item => {
           // console.log("add item", item);
           let row = table.insertRow();
-          let isbn = row.insertCell(0);
-          let author = row.insertCell(1);
-          let title = row.insertCell(2);
-          let note = row.insertCell(3);
-          let dejapris = row.insertCell(4);
-          let link = row.insertCell(5);
+          let author = row.insertCell(0);
+          let title = row.insertCell(1);
+          let note = row.insertCell(2);
+          let dejapris = row.insertCell(3);
+          let isbn = row.insertCell(4);
           isbn.innerHTML = item.isbn;
           title.innerHTML = item.title;
           author.innerHTML = item.author;
           note.innerHTML = item.note;
           note.innerHTML = '<i class="pbutton_less" onclick="dec('+item.isbn+')">-</i>' + note.innerHTML + '<i class="pbutton_plus" onclick="inc('+item.isbn+')">+</i>';
           dejapris.innerHTML = item.dejapris;
-          link.innerHTML = '<a href="https://www.abebooks.fr/servlet/SearchResults?kn='+item.isbn+'">lien<a>'
+          isbn.innerHTML = '<a href="https://www.abebooks.fr/servlet/SearchResults?kn='+item.isbn+'">'+item.isbn+'<a>'
         });
 }
 
@@ -74,7 +73,9 @@ function filterTable(){
     for (i = 1; i < tr.length; i++) {
         tds = tr[i].getElementsByTagName("td");
         let concatStr = "";
-        for (j = 0; j < tds.length; j++) {
+        // for (j = 0; j < tds.length; j++) {
+        // search only look for first three columns (author title note)
+        for (j = 0; j < 3; j++) {
             txtValue = tds[j].textContent || tds[j].innerText;
             concatStr = concatStr + ":" + txtValue;
         }       
@@ -86,6 +87,5 @@ function filterTable(){
         }
     }
 }
-
 
 getData();

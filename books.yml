@@ -1,8 +1,20 @@
-author: Edward Ashton
+author: ' Nob'
 dejapris: true
-isbn: '9791028114138'
+isbn: '9782747072472'
 note: 4
-title: Mickey7
+title: "La cantoche, tome 2 : Les go\xFBts et les couleurs"
+---
+author: ' Nob'
+dejapris: true
+isbn: '9791036314919'
+note: 4
+title: "La cantoche, tome 5 : En avant, m\xE2che !"
+---
+author: A.D. Martel
+dejapris: true
+isbn: '2381670564'
+note: 1
+title: 'De rouages et de sang, tome 1 : Les disparus d''Arkantras'
 ---
 author: Ahmed Saladin
 dejapris: true
@@ -10,17 +22,83 @@ isbn: '9782809479126'
 note: 2
 title: Magnificient Ms Marvel, tome 1
 ---
-author: Gregory Mackay
+author: Alain Crozon
 dejapris: true
-isbn: '9782916049632'
+isbn: '9782021068580'
+note: 4
+title: Qui suis-je ?
+---
+author: Christophe Mauri
+dejapris: true
+isbn: '9782070696888'
 note: 0
-title: Anders et la comete
+title: "Mathieu Hidalf, tome 1 : Le premier d\xE9fi de Mathieu Hidalf"
 ---
 author: DAVE GRAY
 dejapris: true
 isbn: '9782354561086'
 note: 0
 title: Gamestorming
+---
+author: Edward Ashton
+dejapris: true
+isbn: '9791028114138'
+note: 4
+title: Mickey7
+---
+author: Gregory Mackay
+dejapris: true
+isbn: '9782916049632'
+note: 0
+title: Anders et la comete
+---
+author: "Herv\xE9 Eparvier"
+dejapris: true
+isbn: '9791027606337'
+note: 4
+title: 'Loulou et Momo, tome 2 : Plus on est de fous, plus on pourrit !'
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021011968'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 1 : Carnet de bord de Greg Heffley"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782020988186'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 2 : Rodrick fait sa loi "
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021011159'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 3 : Trop c'est trop"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021041910'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 4 : \xC7a fait suer !"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021083781'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 6 : Carr\xE9ment claustro"
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021060119'
+note: 4
+title: Journal d'un Degonfle Tome 5 - La verite toute moche -
+---
+author: Lewis Trondheim
+dejapris: true
+isbn: '9782756008493'
+note: 0
+title: "Jardins sucr\xE9s"
 ---
 author: Lunlun Yamamoto
 dejapris: true
@@ -40,41 +118,11 @@ isbn: '9782505065227'
 note: 4
 title: Ichiko et Niko, tome 3
 ---
-author: Jeff Kinney
+author: Vic James
 dejapris: true
-isbn: '9782021011159'
+isbn: '9782092570388'
 note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 3 : Trop c'est trop"
----
-author: Jeff Kinney
-dejapris: true
-isbn: '9782021041910'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 4 : \xC7a fait suer !"
----
-author: Jeff Kinney
-dejapris: true
-isbn: '9782021060119'
-note: 4
-title: Journal d'un Degonfle Tome 5 - La verite toute moche -
----
-author: Jeff Kinney
-dejapris: true
-isbn: '9782021011968'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 1 : Carnet de bord de Greg Heffley"
----
-author: Jeff Kinney
-dejapris: true
-isbn: '9782020988186'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 2 : Rodrick fait sa loi "
----
-author: Jeff Kinney
-dejapris: true
-isbn: '9782021083781'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 6 : Carr\xE9ment claustro"
+title: 'Les Puissants, tome 1 : Esclaves'
 ---
 author: Vic James
 dejapris: true
@@ -82,50 +130,8 @@ isbn: '9782092570401'
 note: 4
 title: "Les Puissants, tome 2 : Les \xE9gaux"
 ---
-author: "Herv\xE9 Eparvier"
-dejapris: true
-isbn: '9791027606337'
-note: 4
-title: 'Loulou et Momo, tome 2 : Plus on est de fous, plus on pourrit !'
----
-author: ' Nob'
-dejapris: true
-isbn: '9782747072472'
-note: 4
-title: "La cantoche, tome 2 : Les go\xFBts et les couleurs"
----
-author: Lewis Trondheim
-dejapris: true
-isbn: '9782756008493'
-note: 0
-title: "Jardins sucr\xE9s"
----
-author: Alain Crozon
-dejapris: true
-isbn: '9782021068580'
-note: 4
-title: Qui suis-je ?
----
-author: ' Nob'
-dejapris: true
-isbn: '9791036314919'
-note: 4
-title: "La cantoche, tome 5 : En avant, m\xE2che !"
----
 author: Vic James
 dejapris: true
 isbn: '9782092570425'
 note: 0
 title: 'Les puissants, tome 3 : Libres'
----
-author: Christophe Mauri
-dejapris: true
-isbn: '9782070696888'
-note: 0
-title: "Mathieu Hidalf, tome 1 : Le premier d\xE9fi de Mathieu Hidalf"
----
-author: Vic James
-dejapris: true
-isbn: '9782092570388'
-note: 4
-title: 'Les Puissants, tome 1 : Esclaves'

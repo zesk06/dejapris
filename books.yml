@@ -13,7 +13,7 @@ title: "La cantoche, tome 5 : En avant, m\xE2che !"
 author: A.D. Martel
 dejapris: true
 isbn: '2381670564'
-note: 1
+note: 4
 title: 'De rouages et de sang, tome 1 : Les disparus d''Arkantras'
 ---
 author: Ahmed Saladin
@@ -25,13 +25,13 @@ title: Magnificient Ms Marvel, tome 1
 author: Alain Crozon
 dejapris: true
 isbn: '9782021068580'
-note: 4
+note: 5
 title: Qui suis-je ?
 ---
 author: Christophe Mauri
 dejapris: true
 isbn: '9782070696888'
-note: 0
+note: 1
 title: "Mathieu Hidalf, tome 1 : Le premier d\xE9fi de Mathieu Hidalf"
 ---
 author: DAVE GRAY
@@ -108,6 +108,30 @@ title: Ichiko et Niko, tome 1
 ---
 author: Lunlun Yamamoto
 dejapris: true
+isbn: '9782505068624'
+note: 4
+title: Ichiko et Niko, tome 10
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505068631'
+note: 4
+title: Ichiko et Niko, tome 11
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505076148'
+note: 4
+title: Ichiko et Niko, tome 12
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505084655'
+note: 4
+title: Ichiko et Niko, tome 13
+---
+author: Lunlun Yamamoto
+dejapris: true
 isbn: '9782505065210'
 note: 4
 title: Ichiko et Niko, tome 2
@@ -117,6 +141,24 @@ dejapris: true
 isbn: '9782505065227'
 note: 4
 title: Ichiko et Niko, tome 3
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505065241'
+note: 0
+title: Ichiko et Niko, tome 5
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505068594'
+note: 0
+title: Ichiko et Niko, tome 7
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505068600'
+note: 0
+title: Ichiko et Niko, tome 8
 ---
 author: Vic James
 dejapris: true
@@ -133,5 +175,5 @@ title: "Les Puissants, tome 2 : Les \xE9gaux"
 author: Vic James
 dejapris: true
 isbn: '9782092570425'
-note: 0
+note: 4
 title: 'Les puissants, tome 3 : Libres'

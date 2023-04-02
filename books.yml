@@ -1,3 +1,9 @@
+author: ' Ced'
+dejapris: true
+isbn: '9782408041854'
+note: 0
+title: "Tilda sur les toits, tome 4 : Le royaume abandonn\xE9"
+---
 author: ' Nob'
 dejapris: true
 isbn: '9782747072472'
@@ -28,6 +34,42 @@ isbn: '9782021068580'
 note: 5
 title: Qui suis-je ?
 ---
+author: "Andr\xE9 Bouchard"
+dejapris: true
+isbn: '9782070696628'
+note: 4
+title: La mensongite galopante
+---
+author: Bill Watterson
+dejapris: true
+isbn: '9782258034310'
+note: 0
+title: 'Calvin et Hobbes, tome 1 : Adieu, monde cruel !'
+---
+author: Bill Watterson
+dejapris: true
+isbn: '9782258034877'
+note: 0
+title: 'Calvin et Hobbes, tome 4 : Debout, tas de nouilles !'
+---
+author: Bill Watterson
+dejapris: true
+isbn: '9782258000254'
+note: 0
+title: "Calvin et Hobbes, tome 9 : On n'arr\xEAte pas le progr\xE8s !"
+---
+author: "Caroline H\xFCe"
+dejapris: true
+isbn: '9782408019228'
+note: 0
+title: 'Louve y es-tu ?, tome 1 : Une faim de louve'
+---
+author: Christophe Mauri
+dejapris: true
+isbn: '9782075158091'
+note: 0
+title: "Juliette et le g\xE9ant feuillu"
+---
 author: Christophe Mauri
 dejapris: true
 isbn: '9782070696888'
@@ -54,9 +96,27 @@ title: Anders et la comete
 ---
 author: "Herv\xE9 Eparvier"
 dejapris: true
+isbn: '9791027603947'
+note: 4
+title: "Loulou et Momo, tome 1 : M\xEAme pas peur !"
+---
+author: "Herv\xE9 Eparvier"
+dejapris: true
 isbn: '9791027606337'
 note: 4
 title: 'Loulou et Momo, tome 2 : Plus on est de fous, plus on pourrit !'
+---
+author: "Herv\xE9 Eparvier"
+dejapris: true
+isbn: '9791036323720'
+note: 4
+title: 'Loulou et Momo, tome 4 : Peureux anniversaire !'
+---
+author: Jacqueline Cohen
+dejapris: true
+isbn: '9782747076388'
+note: 0
+title: 'Tom-Tom et Nana, tome 5 : Les vacances infernales'
 ---
 author: Jeff Kinney
 dejapris: true
@@ -94,10 +154,16 @@ isbn: '9782021060119'
 note: 4
 title: Journal d'un Degonfle Tome 5 - La verite toute moche -
 ---
+author: Karine Balzeau
+dejapris: true
+isbn: '9782815307956'
+note: 0
+title: Mes grands labyrinthes
+---
 author: Lewis Trondheim
 dejapris: true
 isbn: '9782756008493'
-note: 0
+note: 1
 title: "Jardins sucr\xE9s"
 ---
 author: Lunlun Yamamoto
@@ -145,7 +211,7 @@ title: Ichiko et Niko, tome 3
 author: Lunlun Yamamoto
 dejapris: true
 isbn: '9782505065241'
-note: 0
+note: 1
 title: Ichiko et Niko, tome 5
 ---
 author: Lunlun Yamamoto
@@ -159,6 +225,18 @@ dejapris: true
 isbn: '9782505068600'
 note: 0
 title: Ichiko et Niko, tome 8
+---
+author: Patrick Burston
+dejapris: true
+isbn: '9782700041057'
+note: 0
+title: Le Jardin aux 100 secrets
+---
+author: Paul Martin
+dejapris: true
+isbn: '9791036328985'
+note: 0
+title: "Enigmes \xE0 tous les \xE9tages, tome 2 : Les douze mauvais coups de minuit"
 ---
 author: Vic James
 dejapris: true

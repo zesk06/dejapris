@@ -3,6 +3,7 @@ import secrets
 from pathlib import Path
 from typing import List
 from typing import Optional
+from starlette.status import HTTP_202_ACCEPTED
 
 import yaml
 from dotenv import load_dotenv
@@ -15,7 +16,7 @@ from fastapi.security import HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from logzero import logger
 from pydantic import BaseModel
-from pydantic.parse import load_file
+from pydantic import Field
 
 from isbn import get_book_from_isbn
 from model import Book
@@ -35,15 +36,18 @@ MAX_NOTE = 5
 BOOKS_FILE = Path("books.yml")
 
 
-def load_books(book_path: Path = BOOKS_FILE) -> list[Book]:
+def load_books(book_path: Path = BOOKS_FILE) -> dict[str, Book]:
     yaml_str = book_path.read_text()
     book_list = yaml.safe_load_all(yaml_str)
+    return {item["isbn"]: Book(**item) for item in book_list}
 
-    return sorted([Book(**item) for item in book_list], key=lambda b: b.author.upper() + b.title.upper())
 
+def save_books(books: dict[str,Book], book_path: Path = BOOKS_FILE):
+    result = []
+    for book in list(sorted(books.values(), key=lambda b:b.author)):
+        result.append(book.dict())
 
-def save_books(books: List[Book], book_path: Path = BOOKS_FILE):
-    yaml_str = yaml.safe_dump_all([book.dict() for book in books])
+    yaml_str = yaml.safe_dump_all(result)
     book_path.write_text(yaml_str, "utf-8")
 
 
@@ -53,6 +57,7 @@ class Message(BaseModel):
 
 def get_username(credentials: HTTPBasicCredentials = Depends(security)):
     current_username_bytes = credentials.username.encode("utf8")
+    assert USERNAME
     correct_username_bytes = USERNAME.encode("utf-8")
     is_correct_username = secrets.compare_digest(
         current_username_bytes, correct_username_bytes
@@ -80,47 +85,19 @@ async def root(username: str = Depends(get_username)):
 async def get_books(username: str = Depends(get_username)) -> List[Book]:
     """get all books"""
     logger.info(f"{username}.get_books")
-    return load_books()
+    return list(load_books().values())
 
 
-@app.post(
-    "/book/{isbn}/note/dec",
-    response_model=Book,
-    responses={
-        401: {"model": Message, "description": "Unauthorized"},
-        404: {"model": Message, "description": "The book was not found"},
-        200: {
-            "description": "Item requested by ID",
-            "content": {
-                "application/json": {
-                    "example": {
-                        "title": "bar",
-                        "isbn": "12345",
-                        "author": "John Doe",
-                        "dejapris": True,
-                        "note": 0,
-                    }
-                }
-            },
-        },
-    },
-)
-async def dec_book_note(isbn: str, username: str=Depends(get_username)) -> Optional[Book]:
-    """dec change a book note"""
-    logger.info(f"{username}.dec_book_note")
-    books = load_books()
-    for book in books:
-        if book.isbn == isbn:
-            book.note = max(book.note - 1, 0)
-            save_books(books)
-            return book
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
+class NoteParam(BaseModel):
+    note: int = Field(
+        title='The note',
+        description='The note of the book',
+        ge=1,
+        le=5,
     )
 
-
 @app.post(
-    "/book/{isbn}/note/inc",
+    "/book/{isbn}/note",
     response_model=Book,
     responses={
         404: {"model": Message, "description": "The book was not found"},
@@ -140,15 +117,15 @@ async def dec_book_note(isbn: str, username: str=Depends(get_username)) -> Optio
         },
     },
 )
-async def inc_book_note(isbn: str, username: str= Depends(get_username)) -> Optional[Book]:
-    """inc change a book note"""
-    logger.info(f"{username}.inc_book_note")
+async def set_book_note(isbn: str, params: NoteParam, username: str= Depends(get_username)) -> Optional[Book]:
+    """set a book note"""
+    logger.info(f"{username}.set_book_note({params=})")
     books = load_books()
-    for book in books:
-        if book.isbn == isbn:
-            book.note = min(book.note + 1, MAX_NOTE)
-            save_books(books)
-            return book
+    if isbn in books:
+        book = books[isbn]
+        book.note = params.note
+        save_books(books)
+        return book
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
     )
@@ -179,9 +156,9 @@ async def inc_book_note(isbn: str, username: str= Depends(get_username)) -> Opti
 async def get_book_by_isbn(isbn: str, username: str=Depends(get_username)) -> Optional[Book]:
     """get a book by its isbn"""
     logger.info(f"{username}.get_book_by_isbn")
-    for book in load_books():
-        if book.isbn == isbn:
-            return book
+    books = load_books()
+    if isbn in books:
+        return books[isbn]
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
     )
@@ -214,13 +191,13 @@ async def post_book(book: Book, username: str=Depends(get_username)) -> Optional
     logger.info(f"{username}.post_book")
     books = load_books()
 
-    if book.isbn in [item.isbn for item in books]:
+    if book.isbn in books:
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
             detail=f"book isbn already in database (isbn={book.isbn})",
         )
 
-    books.append(book)
+    books[book.isbn] = book
     save_books(books)
     return book
 
@@ -289,7 +266,7 @@ async def post_isbn(isbn: str, username: str=Depends(get_username)) -> Book:
     logger.info(f"{username}.post_isbn")
     books = load_books()
 
-    if isbn in [item.isbn for item in books]:
+    if isbn in books:
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
             detail=f"book isbn already in database (isbn={isbn})",
@@ -302,3 +279,39 @@ async def post_isbn(isbn: str, username: str=Depends(get_username)) -> Book:
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND, detail=f"book not found (isbn={isbn})"
     )
+
+@app.delete(
+    "/isbn/{isbn}",
+    responses={
+        404: {"model": Message, "description": "The item was not found"},
+        202: {
+            "description": "Item deleted",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "title": "bar",
+                        "isbn": "12345",
+                        "author": "John Doe",
+                        "dejapris": True,
+                        "note": 0,
+                    }
+                }
+            },
+        },
+    },
+    status_code=status.HTTP_202_ACCEPTED,
+)
+async def del_isbn(isbn: str, username: str=Depends(get_username)) -> Book:
+    """Del a book by its ISBN"""
+    isbn = isbn.replace("-", "").replace(" ","")
+    logger.info(f"{username}.del_isbn")
+    books = load_books()
+
+    if isbn not in books:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"book isbn not found in database (isbn={isbn})",
+        )
+    book = books.pop(isbn)
+    return book
+

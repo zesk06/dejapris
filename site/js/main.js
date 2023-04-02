@@ -1,37 +1,28 @@
 
-// function inc
-// increments the isbn
-var inc = function(isbn){
-    // see https://reqbin.com/code/javascript/wzp2hxwh/javascript-post-request-example
-    console.log("inc("+isbn+")");
-    fetch('/book/'+isbn+'/note/inc', {
+var isbn_set_note = function(isbn,note){
+    console.log("isbn_set_note("+isbn+","+note+")");
+    fetch('/book/'+isbn+'/note', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({'note': note})
     })
     .then(response => response.json())
     .then(response => console.log(JSON.stringify(response)))
-    window.location.reload();
+    const note_element = document.getElementById("note_"+isbn);
+    note_element.innerText = note;
 };
 
+// function thumbdown
+var thumbdown = function(isbn){
+    isbn_set_note(isbn, 1);
+};
 
-// function dec
-// decrements the isbn
-var dec = function(isbn){
-    // see https://reqbin.com/code/javascript/wzp2hxwh/javascript-post-request-example
-    console.log("inc("+isbn+")");
-    fetch('/book/'+isbn+'/note/dec', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))
-    window.location.reload();
+// function thumbup
+var thumbup = function(isbn){
+    isbn_set_note(isbn, 4);
 };
 
 function populateTable(items) {
@@ -42,14 +33,16 @@ function populateTable(items) {
           let author = row.insertCell(0);
           let title = row.insertCell(1);
           let note = row.insertCell(2);
-          let dejapris = row.insertCell(3);
-          let isbn = row.insertCell(4);
+          // let dejapris = row.insertCell(3);
+          let isbn = row.insertCell(3);
           isbn.innerHTML = item.isbn;
           title.innerHTML = item.title;
           author.innerHTML = item.author;
           note.innerHTML = item.note;
-          note.innerHTML = '<i class="pbutton_less" onclick="dec('+item.isbn+')">-</i>' + note.innerHTML + '<i class="pbutton_plus" onclick="inc('+item.isbn+')">+</i>';
-          dejapris.innerHTML = item.dejapris;
+          note.innerHTML =  '<i class="pbutton" onclick="thumbdown('+item.isbn+')">👎</i>'
+                          + '<span id="note_'+ item.isbn + '">' + note.innerHTML + '</span>' 
+                          + '<i class="pbutton" onclick="thumbup('+item.isbn+')">👍</i>';
+          // dejapris.innerHTML = item.dejapris;
           isbn.innerHTML = '<a href="https://www.abebooks.fr/servlet/SearchResults?kn='+item.isbn+'">'+item.isbn+'<a>'
         });
 }

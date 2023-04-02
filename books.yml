@@ -1,7 +1,7 @@
 author: ' Ced'
 dejapris: true
 isbn: '9782408041854'
-note: 0
+note: 1
 title: "Tilda sur les toits, tome 4 : Le royaume abandonn\xE9"
 ---
 author: ' Nob'
@@ -42,6 +42,12 @@ title: La mensongite galopante
 ---
 author: Bill Watterson
 dejapris: true
+isbn: '9782258000254'
+note: 0
+title: "Calvin et Hobbes, tome 9 : On n'arr\xEAte pas le progr\xE8s !"
+---
+author: Bill Watterson
+dejapris: true
 isbn: '9782258034310'
 note: 0
 title: 'Calvin et Hobbes, tome 1 : Adieu, monde cruel !'
@@ -52,12 +58,6 @@ isbn: '9782258034877'
 note: 0
 title: 'Calvin et Hobbes, tome 4 : Debout, tas de nouilles !'
 ---
-author: Bill Watterson
-dejapris: true
-isbn: '9782258000254'
-note: 0
-title: "Calvin et Hobbes, tome 9 : On n'arr\xEAte pas le progr\xE8s !"
----
 author: "Caroline H\xFCe"
 dejapris: true
 isbn: '9782408019228'
@@ -66,15 +66,15 @@ title: 'Louve y es-tu ?, tome 1 : Une faim de louve'
 ---
 author: Christophe Mauri
 dejapris: true
-isbn: '9782075158091'
-note: 0
-title: "Juliette et le g\xE9ant feuillu"
----
-author: Christophe Mauri
-dejapris: true
 isbn: '9782070696888'
 note: 1
 title: "Mathieu Hidalf, tome 1 : Le premier d\xE9fi de Mathieu Hidalf"
+---
+author: Christophe Mauri
+dejapris: true
+isbn: '9782075158091'
+note: 1
+title: "Juliette et le g\xE9ant feuillu"
 ---
 author: DAVE GRAY
 dejapris: true
@@ -120,12 +120,6 @@ title: 'Tom-Tom et Nana, tome 5 : Les vacances infernales'
 ---
 author: Jeff Kinney
 dejapris: true
-isbn: '9782021011968'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 1 : Carnet de bord de Greg Heffley"
----
-author: Jeff Kinney
-dejapris: true
 isbn: '9782020988186'
 note: 4
 title: "Journal d'un (d\xE9)gonfl\xE9, tome 2 : Rodrick fait sa loi "
@@ -138,21 +132,27 @@ title: "Journal d'un (d\xE9)gonfl\xE9, tome 3 : Trop c'est trop"
 ---
 author: Jeff Kinney
 dejapris: true
+isbn: '9782021011968'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 1 : Carnet de bord de Greg Heffley"
+---
+author: Jeff Kinney
+dejapris: true
 isbn: '9782021041910'
 note: 4
 title: "Journal d'un (d\xE9)gonfl\xE9, tome 4 : \xC7a fait suer !"
 ---
 author: Jeff Kinney
 dejapris: true
-isbn: '9782021083781'
-note: 4
-title: "Journal d'un (d\xE9)gonfl\xE9, tome 6 : Carr\xE9ment claustro"
----
-author: Jeff Kinney
-dejapris: true
 isbn: '9782021060119'
 note: 4
 title: Journal d'un Degonfle Tome 5 - La verite toute moche -
+---
+author: Jeff Kinney
+dejapris: true
+isbn: '9782021083781'
+note: 4
+title: "Journal d'un (d\xE9)gonfl\xE9, tome 6 : Carr\xE9ment claustro"
 ---
 author: Karine Balzeau
 dejapris: true
@@ -171,6 +171,36 @@ dejapris: true
 isbn: '9782505065203'
 note: 4
 title: Ichiko et Niko, tome 1
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505065210'
+note: 4
+title: Ichiko et Niko, tome 2
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505065227'
+note: 4
+title: Ichiko et Niko, tome 3
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505065241'
+note: 1
+title: Ichiko et Niko, tome 5
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505068594'
+note: 4
+title: Ichiko et Niko, tome 7
+---
+author: Lunlun Yamamoto
+dejapris: true
+isbn: '9782505068600'
+note: 4
+title: Ichiko et Niko, tome 8
 ---
 author: Lunlun Yamamoto
 dejapris: true
@@ -196,40 +226,10 @@ isbn: '9782505084655'
 note: 4
 title: Ichiko et Niko, tome 13
 ---
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505065210'
-note: 4
-title: Ichiko et Niko, tome 2
----
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505065227'
-note: 4
-title: Ichiko et Niko, tome 3
----
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505065241'
-note: 1
-title: Ichiko et Niko, tome 5
----
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505068594'
-note: 0
-title: Ichiko et Niko, tome 7
----
-author: Lunlun Yamamoto
-dejapris: true
-isbn: '9782505068600'
-note: 0
-title: Ichiko et Niko, tome 8
----
 author: Patrick Burston
 dejapris: true
 isbn: '9782700041057'
-note: 0
+note: 1
 title: Le Jardin aux 100 secrets
 ---
 author: Paul Martin
